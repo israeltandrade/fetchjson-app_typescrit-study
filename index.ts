@@ -18,3 +18,16 @@ for (let i = 0; i < words.length; i++) {
     }
 }
 console.log(foundWord);
+
+// 3) Variable whose type cannot be inferred correctly
+// No exemplo a seguir a variável leva false ou um número maior que 0:
+let numbers = [-10, -1, 12];
+let numberAboveZero: boolean | number = false;
+
+for ( let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > 0) {
+        numberAboveZero = numbers[i];
+    }
+}
+
+console.log(numberAboveZero);
