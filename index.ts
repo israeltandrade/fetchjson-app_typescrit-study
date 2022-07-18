@@ -11,10 +11,10 @@ let foundWord: boolean;
 
 // A ideia é retornar verdadeiro para foundWord quando uma
 // palavra for encontrada dentro do array words.
-
+foundWord = false;
 for (let i = 0; i < words.length; i++) {
     if (words[i] === 'green') {
         foundWord = true;
-        console.log(foundWord);
     }
 }
+console.log(foundWord);
