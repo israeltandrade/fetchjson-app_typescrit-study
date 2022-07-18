@@ -1,27 +1,20 @@
-import axios from 'axios';
+// When to use type annotations
+// 1) Function that return the 'any' type
+const json = '{"x": 10, "y": 20}';
+const coordinates: { x: number; y: number } = JSON.parse(json)
+console.log(coordinates); // {x: 10, y: 20});
 
-const url = 'https://jsonplaceholder.typicode.com/todos/1'
+// 2) When we declare a variable on one line
+//  and initializate it later
+let words = ['red', 'green', 'blue'];
+let foundWord: boolean;
 
-interface Todo {
-    id: number;
-    title: string;
-    completed: boolean;
+// A ideia é retornar verdadeiro para foundWord quando uma
+// palavra for encontrada dentro do array words.
+
+for (let i = 0; i < words.length; i++) {
+    if (words[i] === 'green') {
+        foundWord = true;
+        console.log(foundWord);
+    }
 }
-
-axios.get(url).then(response => {
-    const todo = response.data as Todo;
-
-    const id = todo.id;
-    const title = todo.title;
-    const completed = todo.completed;
-
-    logTodo(id, title, completed);
-});
-
-const logTodo = (id: number, title: string, completed: boolean) => {
-    console.log(`
-    The Todo with ID: ${id}
-    Has a title of: ${title}
-    Is it completed? ${completed}
-    `);
-};
