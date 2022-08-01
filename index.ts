@@ -1,18 +1,6 @@
-import axios from 'axios';
+// When to use type annotations
+// 1) Function that return the 'any' type
+const json = '{"x": 10, "y": 20}';
+const coordinates: { x: number; y: number } = JSON.parse(json)
+console.log(coordinates); // {x: 10, y: 20});
 
-const url = 'https://jsonplaceholder.typicode.com/todos/1'
-
-axios.get(url).then(response => {
-    const todo = response.data;
-
-    // Desta maneira os dados são retornados como "undefined"
-    const ID = todo.ID;
-    const title = todo.Title;
-    const finished = todo.finished;
-
-    console.log(`
-    The Todo with ID: ${ID}
-    Has a title of: ${title}
-    Is it finished? ${finished}
-    `);
-});
